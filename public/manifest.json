@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Reactive Weather",
+  "name": "Reactive Weather Lookup Application",
   "icons": [
     {
       "src": "favicon.ico",
