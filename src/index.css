@@ -13,7 +13,11 @@ code {
 }
 
 .form-input{
-  text-indent: 20px;
+  text-indent: 22px;
+}
+
+.form-control::placeholder {
+  font-style: italic;
 }
 
 .searchBar {
@@ -22,6 +26,6 @@ code {
 
 .searchBar .fa6 {
   position: absolute;
-  top: 16px;
-  left: 25px;
+  top: 17px;
+  left: 28px;
 }
