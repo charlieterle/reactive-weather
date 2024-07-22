@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.form-input{
+  text-indent: 20px;
+}
+
+.searchBar {
+  position: relative;
+}
+
+.searchBar .fa6 {
+  position: absolute;
+  top: 16px;
+  left: 25px;
+}
