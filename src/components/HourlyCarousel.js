@@ -13,12 +13,12 @@ export default function HourlyCarousel({ hourlyCards }) {
             let index = i * CAROUSEL_LENGTH + j;
             if (index < hourlyCards.length) cardArr.push(hourlyCards[index]);
         }
-        carouselItems.push(cardArr);
+        carouselItems.push([cardArr, "carouselItem" + i]);
     }
 
-    function createCarouselItem(itemGroup) {
+    function createCarouselItem([itemGroup, key]) {
         return (
-            <Carousel.Item>
+            <Carousel.Item key={key}>
                 <Row>
                 {itemGroup}
                 </Row>
