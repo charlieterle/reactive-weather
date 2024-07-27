@@ -3,17 +3,23 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row';
 
 export default function CurrentWeather({ weatherData, celFar }) {
+  const locationData = weatherData.location;
+  const title = [locationData.name, locationData.region, locationData.country].join(", ")
+  const currentData = weatherData.current;
+  const currentTemp = celFar === "C" ? currentData.temp_c : currentData.temp_f;
+  const weatherStatus = currentData.condition.text;
+  const precipPct = weatherData.forecast.forecastday[0].day.daily_chance_of_rain;
   return (
     <Container className="container mt-2">
-      <Row>{weatherData.title}</Row>
+      <Row>{title}</Row>
       <Row className="">
-        {weatherData.currentTemp}˚{celFar}
+        {currentTemp}˚{celFar}
       </Row>
       <Row>
-        {weatherData.weatherStatus}
+        {weatherStatus}
       </Row>
       <Row>
-        Precipitation: {weatherData.precipPct}%
+        Precipitation: {precipPct}%
       </Row>
     </Container>
   )

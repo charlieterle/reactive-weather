@@ -24,12 +24,7 @@ export default function App() {
   }
 
   function isEmpty(obj) {
-    for (const prop in obj) {
-      if (Object.hasOwn(obj, prop)) {
-        return false;
-      }
-    }
-  
+    for (const prop in obj) return false;
     return true;
   }
 
@@ -67,8 +62,7 @@ export default function App() {
   for (const h of hourlyData) {
     hourlyCards.push(
       <HourlyCard
-        hour={h.time}
-        temp={celFar === 'C' ? h.temp_c : h.temp_f}
+        hourData={h}
         celFar={celFar}
         key={"hourlyCard-" + h.time}
       />
