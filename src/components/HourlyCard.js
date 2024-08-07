@@ -7,8 +7,8 @@ export default function HourlyCard({ hourData, celFar }) {
       <Card.Header>{hourData.time}</Card.Header>
       <Card.Body>
         <Card.Text>{celFar === 'C' ? hourData.temp_c : hourData.temp_f}˚{celFar}</Card.Text>
-        <Card.Img src="" />
-        <Card.Text>50%</Card.Text>
+        <Card.Img class="rounded float-start" src={hourData.condition.icon} />
+        <Card.Text>{hourData.condition.text}</Card.Text>
       </Card.Body>
 
     </Card>
