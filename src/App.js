@@ -12,6 +12,8 @@ const FORECAST_DAYS = 3;
 
 let celFar = "F";
 
+const condition_data = require('./conditions.json');
+
 export default function App() {
   const localStorageLocations = localStorage.getItem('locations');
   let locations = localStorageLocations === null ? [] : JSON.parse(localStorageLocations)['locations'];
@@ -47,6 +49,8 @@ export default function App() {
       onInputChange={handleInputChange}
     />
   )
+
+  // If there has been no request for weather data yet, only show the search bar
   if (isEmpty(weatherData)) {
     return (
       <div className="App">
@@ -71,7 +75,6 @@ export default function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
         {searchBar}
         <CurrentWeather
           weatherData={weatherData}
@@ -80,7 +83,6 @@ export default function App() {
         <HourlyCarousel
           hourlyCards={hourlyCards}
         />
-      </header>
     </div>
   );
 
