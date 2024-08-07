@@ -12,6 +12,7 @@ const FORECAST_DAYS = 3;
 
 let celFar = "F";
 
+// Can use this data to internationalize the site
 const condition_data = require('./conditions.json');
 
 export default function App() {
