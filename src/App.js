@@ -62,13 +62,20 @@ export default function App() {
   }
 
   let hourlyCards = [];
-  const hourlyData = weatherData.forecast.forecastday[0].hour;
-  for (const h of hourlyData) {
+  const hourlyDataToday = weatherData.forecast.forecastday[0].hour;
+  const hourlyDataTomorrow = weatherData.forecast.forecastday[1].hour;
+  const current_hour = Number(weatherData.location.localtime.slice(11, 13));
+  // Get the next 24 hours of hourly weather data
+  for (let i = 0; i < 24; i++) {
+    let hour = current_hour + i + 1;
+    let today = hour <= 23;
+    let hourData = today ? hourlyDataToday[hour] : hourlyDataTomorrow[hour - 24];
     hourlyCards.push(
       <HourlyCard
-        hourData={h}
+        hourData={hourData}
+        today={today}
         celFar={celFar}
-        key={"hourlyCard-" + h.time}
+        key={"hourlyCard-" + hourData.time}
       />
     )
   }
