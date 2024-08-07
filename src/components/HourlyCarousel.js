@@ -1,6 +1,7 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel'
 import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 const CAROUSEL_LENGTH = 6;
 
@@ -11,7 +12,9 @@ export default function HourlyCarousel({ hourlyCards }) {
         const cardArr = []
         for (let j = 0; j < CAROUSEL_LENGTH; j++) {
             let index = i * CAROUSEL_LENGTH + j;
-            if (index < hourlyCards.length) cardArr.push(hourlyCards[index]);
+            if (index < hourlyCards.length) {
+                cardArr.push(<Col>{hourlyCards[index]}</Col>)
+            };
         }
         carouselItems.push([cardArr, "carouselItem" + i]);
     }
