@@ -32,7 +32,7 @@ export default function HourlyCarousel({ hourlyCards }) {
 
   return (
     <Container>
-      <Carousel>
+      <Carousel interval={null} wrap={false} variant='dark'>
         {carouselItems.map(createCarouselItem)}
       </Carousel>
     </Container>
