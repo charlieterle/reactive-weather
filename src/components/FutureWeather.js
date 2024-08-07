@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row'
 export default function FutureWeather({ weatherData, celFar }) {
     const forecastData = weatherData.forecast.forecastday;
     const forecastCards = [];
-    for (forecastDay of forecastData) {
+    for (const forecastDay of forecastData) {
         // Create a forecastCard with this data
         const date = forecastDay.date;
         const maxTemp = celFar === "C" ? forecastDay.day.maxtemp_c : forecastDay.day.maxtemp_f;
