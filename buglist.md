@@ -1,7 +1,7 @@
 # Bugs
 
 ## P0
-* Hourly forecast carousel shows hours that are already in the past
+* Carousel controls appear on top of the carousel slide, obstructing the view
 * Page reload behavior is unexpected (gets rid of current search)
 * Location submit behavior does not allow for resubmit of same location
 
