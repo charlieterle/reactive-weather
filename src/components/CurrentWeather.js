@@ -1,6 +1,7 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export default function CurrentWeather({ weatherData, celFar }) {
   const locationData = weatherData.location;
@@ -8,19 +9,19 @@ export default function CurrentWeather({ weatherData, celFar }) {
   const currentData = weatherData.current;
   const currentTemp = celFar === "C" ? currentData.temp_c : currentData.temp_f;
   const weatherStatus = currentData.condition.text;
-  const precipPct = weatherData.forecast.forecastday[0].day.daily_chance_of_rain;
   return (
     <Container className="container mt-2">
-      <h1 class="text-center">Current Weather</h1>
-      <Row>{location}</Row>
       <Row className="">
-        {currentTemp}˚{celFar}
+        <Col className="bg-primary-subtle col-11 fs-3 text-left">Weather in {location}</Col>
+        <Col className="col-1">
+          <img class="float-right" src={currentData.condition.icon} alt={weatherStatus}></img>
+        </Col>
       </Row>
-      <Row>
-        {weatherStatus}
+      <Row className="">
+        <Col className="bg-secondary-subtle col-12 fs-2 text-left">{currentTemp}˚{celFar} </Col>
       </Row>
-      <Row>
-        Precipitation: {precipPct}%
+      <Row className="">
+        <Col className="bg-secondary-subtle col-12 fs-2 text-left">{weatherStatus}</Col>
       </Row>
     </Container>
   )
