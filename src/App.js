@@ -1,4 +1,3 @@
-import './App.css';
 import SearchBar from './components/SearchBar.js'
 import CurrentWeather from './components/CurrentWeather.js';
 import HourlyCard from './components/HourlyCard.js';
