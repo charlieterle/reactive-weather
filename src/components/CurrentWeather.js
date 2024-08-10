@@ -9,7 +9,6 @@ export default function CurrentWeather({ weatherData, celFar }) {
   const currentTemp = celFar === "C" ? Math.round(Number(currentData.temp_c)) : Math.round(Number(currentData.temp_f));
   const weatherStatus = currentData.condition.text;
   return (
-    <Container className="mt-2">
       <Card>
         <Card.Header>{location}</Card.Header>
         <Card.Body className="">
@@ -17,6 +16,5 @@ export default function CurrentWeather({ weatherData, celFar }) {
           <Card.Text className="">{currentTemp}˚{celFar}<br />{weatherStatus}</Card.Text>
         </Card.Body>
       </Card>
-    </Container>
   );
 }
