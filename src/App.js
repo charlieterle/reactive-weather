@@ -15,9 +15,7 @@ let celFar = "F";
 const condition_data = require('./conditions.json');
 
 export default function App() {
-  const localStorageLocations = localStorage.getItem('locations');
-  let locations = localStorageLocations === null ? [] : JSON.parse(localStorageLocations)['locations'];
-  const [location, setLocation] = useState(locations.length > 0 ? locations[locations.length - 1] : '');
+  const [location, setLocation] = useState('');
   const [locationInput, setLocationInput] = useState('');
   const [weatherData, setWeatherData] = useState({});
 
@@ -35,11 +33,6 @@ export default function App() {
     if (locationInput === location) return;
     const newLocation = locationInput;
     setLocation(newLocation);
-    if (locations.includes(newLocation)) {
-      return;
-    }
-    const locationsString = JSON.stringify({ "locations": locations });
-    localStorage.setItem("locations", locationsString);
     getWeatherData(newLocation);
   }
 
