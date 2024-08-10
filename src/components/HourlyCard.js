@@ -6,11 +6,13 @@ export default function HourlyCard({ hourData, today, celFar }) {
     <Card>
       <Card.Header class="text-center">{(today ? 'Today' : 'Tomorrow') + ', ' + hourData.time.slice(11)}</Card.Header>
       <Card.Body>
-        <Card.Text>{celFar === 'C' ? hourData.temp_c : hourData.temp_f}˚{celFar}</Card.Text>
+        <Card.Text>
+          {celFar === 'C' ? Math.round(Number(hourData.temp_c)) : Math.round(Number(hourData.temp_f))}˚{celFar}
+          <br />
+          {hourData.condition.text}
+        </Card.Text>
         <Card.Img class="rounded float-start" src={hourData.condition.icon} />
-        <Card.Text>{hourData.condition.text}</Card.Text>
       </Card.Body>
-
     </Card>
   )
 }
