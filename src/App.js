@@ -2,6 +2,9 @@ import SearchBar from './components/SearchBar.js'
 import CurrentWeather from './components/CurrentWeather.js';
 import HourlyCard from './components/HourlyCard.js';
 import HourlyCarousel from './components/HourlyCarousel.js';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import { useState } from 'react';
 
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
@@ -47,7 +50,7 @@ export default function App() {
   if (isEmpty(weatherData)) {
     return (
       <div className="App">
-          <div class="position-absolute top-50 start-50 translate-middle">{searchBar}</div>
+        <div class="position-absolute top-50 start-50 translate-middle">{searchBar}</div>
       </div>
     );
   }
@@ -73,14 +76,17 @@ export default function App() {
 
   return (
     <div className="App">
-        {searchBar}
-        <CurrentWeather
-          weatherData={weatherData}
-          celFar={celFar}
-        />
-        <HourlyCarousel
-          hourlyCards={hourlyCards}
-        />
+      {searchBar}
+      <Container className="mt-2">
+        <Row className="row-12">
+          <Col className="col-12 col-md-3">
+            <CurrentWeather weatherData={weatherData} celFar={celFar} />
+          </Col>
+          <Col className="col-12 col-md-9">
+            <HourlyCarousel hourlyCards={hourlyCards} />
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 
