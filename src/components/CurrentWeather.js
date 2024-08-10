@@ -7,7 +7,7 @@ export default function CurrentWeather({ weatherData, celFar }) {
   const locationData = weatherData.location;
   const location = [locationData.name, locationData.region, locationData.country].join(", ")
   const currentData = weatherData.current;
-  const currentTemp = celFar === "C" ? currentData.temp_c : currentData.temp_f;
+  const currentTemp = celFar === "C" ? Math.round(Number(currentData.temp_c)) : Math.round(Number(currentData.temp_f));
   const weatherStatus = currentData.condition.text;
   return (
     <Container className="container mt-2">
