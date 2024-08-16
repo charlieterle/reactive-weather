@@ -2,6 +2,7 @@ import SearchBar from './components/SearchBar.js'
 import CurrentWeather from './components/CurrentWeather.js';
 import HourlyCard from './components/HourlyCard.js';
 import HourlyCarousel from './components/HourlyCarousel.js';
+import HourlyScroller from './components/HourlyScroller.js';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -58,7 +59,7 @@ export default function App() {
   if (isEmpty(weatherData)) {
     return (
       <div className="App">
-        <div class="position-absolute top-50 start-50 translate-middle">{searchBar}</div>
+        <div className="position-absolute top-50 start-50 translate-middle">{searchBar}</div>
       </div>
     );
   }
@@ -96,6 +97,7 @@ export default function App() {
             <HourlyCarousel hourlyCards={hourlyCards} />
           </Col>
         </Row>
+        <HourlyScroller hourlyCards={hourlyCards} />
       </Container>
     </div>
   );
