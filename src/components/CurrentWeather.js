@@ -1,5 +1,5 @@
+// This component contains the portion of the site that shows the weather right now
 import React from 'react';
-import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 
 export default function CurrentWeather({ weatherData, celFar }) {
