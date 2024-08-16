@@ -1,3 +1,5 @@
+// Returns a carousel that users can click to move
+// between 6-hour chunks of hourly data
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import CardGroup from 'react-bootstrap/CardGroup';

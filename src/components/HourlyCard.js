@@ -1,3 +1,4 @@
+// Returns a single card displaying the weather forecast for a single hour
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 
