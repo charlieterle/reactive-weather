@@ -12,7 +12,7 @@ export default function CurrentWeather({ weatherData, celFar }) {
       <Card>
         <Card.Header>{location}</Card.Header>
         <Card.Body className="">
-          <Card.Img class="float-start" src={currentData.condition.icon} alt={weatherStatus}></Card.Img>
+          <Card.Img className="" src={currentData.condition.icon} alt={weatherStatus}></Card.Img>
           <Card.Text className="">{currentTemp}˚{celFar}<br />{weatherStatus}</Card.Text>
         </Card.Body>
       </Card>
