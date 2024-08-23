@@ -1,7 +1,6 @@
 import SearchBar from './components/SearchBar.js'
 import CurrentWeather from './components/CurrentWeather.js';
 import HourlyCard from './components/HourlyCard.js';
-import HourlyCarousel from './components/HourlyCarousel.js';
 import HourlyScroller from './components/HourlyScroller.js';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
