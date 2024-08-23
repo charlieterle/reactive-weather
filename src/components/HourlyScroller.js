@@ -26,6 +26,7 @@ export default function HourlyScroller({ hourlyCards }) {
     scrollerItems.push([cardArr, "scrollerItem" + i]);
   }
 
+  // Changes which set of hourly data is displayed
   function changeSlides(interval) {
     const nextSlideNum = slideNum + interval;
     if (nextSlideNum < 0 || nextSlideNum > scrollerItems.length - 1) {
@@ -36,21 +37,17 @@ export default function HourlyScroller({ hourlyCards }) {
 
   function createScrollerItem([itemGroup, key]) {
     return (
-      <Row className="" key={key}>
-        <Col className="col-1">
-          <Button onClick={() => changeSlides(-1)}>
-            <BsArrowLeft />
-          </Button>
+      <Row className="align-items-center" key={key}>
+        <Col className="text-bg-primary text-center rounded-3 py-3" onClick={() => changeSlides(-1)}>
+          <BsArrowLeft />
         </Col>
         <Col className="col-10">
           <CardGroup>
             {itemGroup}
           </CardGroup>
         </Col>
-        <Col className="col-1">
-          <Button onClick={() => changeSlides(1)}>
-            <BsArrowRight />
-          </Button>
+        <Col className="text-bg-primary text-center rounded-3 py-3" onClick={() => changeSlides(1)}>
+          <BsArrowRight />
         </Col>
       </Row>
     )
