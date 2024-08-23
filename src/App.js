@@ -89,12 +89,9 @@ export default function App() {
     <div className="App">
       {searchBar}
       <Container className="mt-2">
-        <Row className="row-12">
-          <Col className="col-12 col-md-3">
+        <Row>
+          <Col className="col-4">
             <CurrentWeather weatherData={weatherData} celFar={celFar} />
-          </Col>
-          <Col className="col-12 col-md-9">
-            <HourlyCarousel hourlyCards={hourlyCards} />
           </Col>
         </Row>
         <HourlyScroller hourlyCards={hourlyCards} />
