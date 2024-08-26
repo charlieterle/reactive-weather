@@ -3,8 +3,8 @@
 import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import Button from 'react-bootstrap/Button';
 import CardGroup from 'react-bootstrap/CardGroup';
+import Container from 'react-bootstrap/Container';
 import { BsArrowRight, BsArrowLeft } from 'react-icons/bs';
 import { useState } from 'react';
 
@@ -37,19 +37,21 @@ export default function HourlyScroller({ hourlyCards }) {
 
   function createScrollerItem([itemGroup, key]) {
     return (
-      <Row className="align-items-center" key={key}>
-        <Col className="text-bg-primary text-center rounded-3 py-3" onClick={() => changeSlides(-1)}>
-          <BsArrowLeft />
-        </Col>
-        <Col className="col-10">
-          <CardGroup>
-            {itemGroup}
-          </CardGroup>
-        </Col>
-        <Col className="text-bg-primary text-center rounded-3 py-3" onClick={() => changeSlides(1)}>
-          <BsArrowRight />
-        </Col>
-      </Row>
+      <Container className="mt-2">
+        <Row className="align-items-center" key={key}>
+          <Col className="text-bg-primary text-center rounded-3 py-3" onClick={() => changeSlides(-1)}>
+            <BsArrowLeft />
+          </Col>
+          <Col className="col-10">
+            <CardGroup>
+              {itemGroup}
+            </CardGroup>
+          </Col>
+          <Col className="text-bg-primary text-center rounded-3 py-3" onClick={() => changeSlides(1)}>
+            <BsArrowRight />
+          </Col>
+        </Row>
+      </Container>
     )
   }
 
