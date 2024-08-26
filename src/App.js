@@ -3,16 +3,12 @@ import CurrentWeather from './components/CurrentWeather.js';
 import HourlyCard from './components/HourlyCard.js';
 import HourlyScroller from './components/HourlyScroller.js';
 import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 import { useState } from 'react';
 
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 const WEATHER_BASE_URL = 'http://api.weatherapi.com/v1';
 const FORECAST_URL_EXT = '/forecast.json';
 const FORECAST_DAYS = 3;
-
-let celFar = "F";
 
 // Can use this data to internationalize the site
 // const condition_data = require('./conditions.json');
@@ -24,6 +20,10 @@ export default function App() {
   const [locationInput, setLocationInput] = useState('');
   // weatherData is retrieved with an API call on submit of the location input
   const [weatherData, setWeatherData] = useState({});
+  // Sets the page to Celsius or Fahrenheit
+  const [celFar, setCelFar] = useState("F");
+  // Sets the page to miles or kilometers
+  const [miKm, setMiKm] = useState("mi");
 
   // Handle a user typing into the search bar
   function handleInputChange(e) {
@@ -87,14 +87,8 @@ export default function App() {
   return (
     <div className="App">
       {searchBar}
-      <Container className="mt-2">
-        <Row>
-          <Col className="col-4">
-            <CurrentWeather weatherData={weatherData} celFar={celFar} />
-          </Col>
-        </Row>
-        <HourlyScroller hourlyCards={hourlyCards} />
-      </Container>
+      <CurrentWeather weatherData={weatherData} celFar={celFar} miKm={miKm}/>
+      <HourlyScroller hourlyCards={hourlyCards} />
     </div>
   );
 
