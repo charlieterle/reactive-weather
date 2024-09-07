@@ -15,29 +15,37 @@ export default function CurrentWeather({ weatherData, celFar, miKm }) {
   const windSpeed = miKm === "km" ? Math.round(Number(currentData.wind_kph)) : Math.round(Number(currentData.wind_mph));
   const windUnit = miKm === "km" ? "kph" : "mph";
   return (
-    <Container className="mt-2 border border-5 border-primary rounded">
-      <Row className="justify-content-center" >
-        <Col xs="auto h3">
-          {location}
-        </Col>
-      </Row>
+    <Container className="mt-2">
       <Row className="justify-content-center">
-        <Col xs="auto">
-          <Image src={currentData.condition.icon} alt={weatherStatus}></Image>
-        </Col>
-        <Col xs="auto">
-          {currentTemp}˚{celFar}
-          <br />
-          {weatherStatus}
-          <br />
-          Humidity: {currentData.humidity}%
-          <br />
-          Feels like {currentFeelsLike}˚{celFar}
-          <br />
-          UV Index: {currentData.uv}
-        </Col>
-        <Col xs="auto">
-          Wind: {windSpeed} {windUnit} {currentData.wind_dir}
+        <Col className="col-md-6 border border-5 border-primary rounded">
+          <Row className="justify-content_center">
+            <Col className="h3">
+              {location}
+            </Col>
+          </Row>
+          <Row className="justify-content-center">
+            <Col xs="auto">
+              <Image src={currentData.condition.icon} alt={weatherStatus}></Image>
+            </Col>
+          </Row>
+          <Row className="row-cols-3 justify-content-center" >
+            <Col xs="auto">
+              {weatherStatus}
+              <br />
+              {currentTemp}˚{celFar}
+              <br />
+              Feels like {currentFeelsLike}˚{celFar}
+              <br />
+            </Col>
+            <Col>
+              Humidity: {currentData.humidity}%
+              <br />
+              UV Index: {currentData.uv}
+              <br />
+              Wind: {windSpeed} {windUnit} {currentData.wind_dir}
+            </Col>
+          </Row>
+
         </Col>
       </Row>
     </Container >
