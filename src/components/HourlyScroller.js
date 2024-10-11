@@ -37,7 +37,7 @@ export default function HourlyScroller({ hourlyCards }) {
 
   function createScrollerItem([itemGroup, key]) {
     return (
-      <Container className="mt-2">
+      <Container className="mt-2 text-center">
         <Row className="align-items-center" key={key}>
           <Col className="text-bg-primary text-center rounded-3 py-3" onClick={() => changeSlides(-1)}>
             <BsArrowLeft />

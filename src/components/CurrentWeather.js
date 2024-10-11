@@ -15,20 +15,20 @@ export default function CurrentWeather({ weatherData, celFar, miKm }) {
   const windSpeed = miKm === "km" ? Math.round(Number(currentData.wind_kph)) : Math.round(Number(currentData.wind_mph));
   const windUnit = miKm === "km" ? "kph" : "mph";
   return (
-    <Container className="mt-2">
+    <Container className="mt-2 text-center">
       <Row className="justify-content-center">
-        <Col className="col-md-6 border border-5 border-primary rounded">
-          <Row className="justify-content_center">
-            <Col className="h3">
-              {location}
-            </Col>
-          </Row>
+        <Col className="col-md-8 col-lg-6 border border-5 border-primary rounded">
           <Row className="justify-content-center">
-            <Col xs="auto">
-              <Image src={currentData.condition.icon} alt={weatherStatus}></Image>
+            <Col className="h3">
+              {locationData.name}
+              <br/>
+              {locationData.region}
             </Col>
           </Row>
           <Row className="row-cols-3 justify-content-center" >
+            <Col xs="auto">
+              <Image src={currentData.condition.icon} alt={weatherStatus}></Image>
+            </Col>
             <Col xs="auto">
               {weatherStatus}
               <br />
