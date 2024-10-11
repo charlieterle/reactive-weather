@@ -10,7 +10,7 @@ export default function HourlyCard({ hourData, today, celFar }) {
         <Card.Text className="fs-4">
           {celFar === 'C' ? Math.round(Number(hourData.temp_c)) : Math.round(Number(hourData.temp_f))}˚{celFar}
         </Card.Text>
-        <Card.Img className="rounded float-start" src={hourData.condition.icon} />
+        <Card.Img className="" style={{"max-width": "60px"}} src={hourData.condition.icon} />
       </Card.Body>
     </Card>
   )
