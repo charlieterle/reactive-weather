@@ -18,31 +18,22 @@ export default function CurrentWeather({ weatherData, celFar, miKm }) {
     <Container className="mt-2 text-center">
       <Row className="justify-content-center">
         <Col className="col-md-8 col-lg-6 border border-5 border-primary rounded bg-white bg-opacity-25">
-          <Row className="justify-content-center">
-            <Col className="h3">
-              {locationData.name}
-              <br/>
-              {locationData.region}
-            </Col>
+          <Row className="justify-content-center h3">
+              {locationData.name}, {locationData.region}
           </Row>
           <Row className="row-cols-3 justify-content-center" >
-            <Col xs="auto">
+            <Col>
               <Image src={currentData.condition.icon} alt={weatherStatus}></Image>
             </Col>
-            <Col xs="auto">
-              {weatherStatus}
-              <br />
-              {currentTemp}˚{celFar}
-              <br />
-              Feels like {currentFeelsLike}˚{celFar}
-              <br />
+            <Col>
+              <Row className="justify-content-center">{currentTemp}˚{celFar}</Row>
+              <Row className="justify-content-center">{weatherStatus}</Row>
+              <Row className="justify-content-center">Feels like {currentFeelsLike}˚{celFar}</Row>
             </Col>
             <Col>
-              Humidity: {currentData.humidity}%
-              <br />
-              UV Index: {currentData.uv}
-              <br />
-              Wind: {windSpeed} {windUnit} {currentData.wind_dir}
+              <Row className="justify-content-center">Humidity: {currentData.humidity}%</Row>
+              <Row className="justify-content-center">UV Index: {currentData.uv}</Row>
+              <Row className="justify-content-center">Wind: {windSpeed} {windUnit} {currentData.wind_dir}</Row>
             </Col>
           </Row>
 
