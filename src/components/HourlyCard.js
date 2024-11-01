@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 
 export default function HourlyCard({ hourData, today, celFar }) {
   return (
-    <Card className="bg-white bg-opacity-25">
+    <Card className="bg-white bg-opacity-50">
       <Card.Header className="text-center">{(today ? 'Today' : 'Tomorrow') + ', ' + hourData.time.slice(11)}</Card.Header>
       <Card.Body >
         <Card.Text className="fs-4">
