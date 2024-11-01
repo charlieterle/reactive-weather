@@ -39,7 +39,7 @@ export default function HourlyScroller({ hourlyCards }) {
     return (
       <Container className="mt-2 text-center">
         <Row className="align-items-center" key={key}>
-          <Col className="col-1 text-bg-primary text-center rounded-3 py-3" onClick={() => changeSlides(-1)}>
+          <Col className="col-2 col-sm-1 text-bg-primary text-center rounded-3 py-3" onClick={() => changeSlides(-1)}>
             <BsArrowLeft />
           </Col>
           <Col className="col">
@@ -47,7 +47,7 @@ export default function HourlyScroller({ hourlyCards }) {
               {itemGroup}
             </CardGroup>
           </Col>
-          <Col className="col-1 text-bg-primary text-center rounded-3 py-3" onClick={() => changeSlides(1)}>
+          <Col className="col-2 col-sm-1 text-bg-primary text-center rounded-3 py-3" onClick={() => changeSlides(1)}>
             <BsArrowRight />
           </Col>
         </Row>
