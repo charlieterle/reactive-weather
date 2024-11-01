@@ -64,11 +64,12 @@ export default function App() {
   }
 
   // Get the next 24 hours of hourly weather data
-  // and create an HourlyCard for each hour
   let hourlyCards = [];
   const hourlyDataToday = weatherData.forecast.forecastday[0].hour;
   const hourlyDataTomorrow = weatherData.forecast.forecastday[1].hour;
   const current_hour = Number(weatherData.location.localtime.slice(11, 13));
+
+  // create an HourlyCard for each hour of hourly weather data
   for (let i = 0; i < 24; i++) {
     let hour = current_hour + i + 1;
     let today = hour <= 23;
