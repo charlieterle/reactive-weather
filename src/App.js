@@ -58,7 +58,7 @@ export default function App() {
   if (isEmpty(weatherData)) {
     return (
       <div className="App">
-        <div className="position-absolute top-50 start-50 translate-middle">{searchBar}</div>
+        <div className="col-9 col-sm-7 col-md-5 col-lg-4 col-xl-3 position-absolute top-50 start-50 translate-middle">{searchBar}</div>
       </div>
     );
   }
@@ -84,7 +84,6 @@ export default function App() {
       celFar={celFar}
       key={"hourlyCard-" + hourData.time}
     />);
-
 
   // Main return statement
   return (

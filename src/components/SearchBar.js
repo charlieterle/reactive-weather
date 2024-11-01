@@ -18,7 +18,7 @@ export default function SearchBar({ onLocationSubmit, onInputChange, inputValue 
             size="lg"
             type="text"
             value={inputValue}
-            placeholder="Search City (e.g. Tokyo)"
+            placeholder="City Name"
             aria-label="search-bar"
             aria-describedby="search-bar-icon"
           />
