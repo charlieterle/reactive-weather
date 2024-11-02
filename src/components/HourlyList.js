@@ -4,53 +4,42 @@ import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
+import Image from 'react-bootstrap/Image';
+import ListGroup from 'react-bootstrap/ListGroup';
 // import { TODO FIND NEW ICON } from 'react-icons/bs';
 import { useState } from 'react';
 
-export default function HourlyList({ hourData, today, celFar }) {
+export default function HourlyList({ hourData, celFar }) {
   const [listOpen, setlistOpen] = useState(false);
 
-  // Divide all of the cards up into sets that will each form one slide on the scroller
-  const scrollerItems = [];
-  for (let i = 0; i < hourData.length; i++) {
-    const cardArr = []
-    for (let j = 0; j < SCROLLER_LENGTH; j++) {
-      let index = i * SCROLLER_LENGTH + j;
-      if (index < hourlyCards.length) {
-        cardArr.push(hourlyCards[index]);
-      };
-    }
-    scrollerItems.push([cardArr, "scrollerItem" + i]);
-  }
+  let currentHour = hourData[0].time.slice(11, 14);
 
-  // Changes which set of hourly data is displayed
-  function changeSlides(interval) {
-    const nextSlideNum = slideNum + interval;
-    if (nextSlideNum < 0 || nextSlideNum > scrollerItems.length - 1) {
-      return;
-    }
-    setSlideNum(nextSlideNum);
-  }
-
-  function createScrollerItem([itemGroup, key]) {
-    return (
-      <Container className="mt-2 text-center">
-        <Row className="align-items-center" key={key}>
-          <Col className="col-2 col-sm-1 text-bg-primary text-center rounded-3 py-3" onClick={() => changeSlides(-1)}>
-            <BsArrowLeft />
+  // Create a list of rows that display the hourly data for the next 24 hours
+  const listItems = hourData.map(
+    (oneHourData) =>
+      <ListGroup.Item className="bg-white bg-opacity-50" >
+        <Row className="justify-content-center">
+          <Col>{oneHourData.time.slice(11, 14) >= currentHour ? 'Today' : 'Tomorrow'} {oneHourData.time.slice(11)}</Col>
+          <Col className="">
+            <Image src={oneHourData.condition.icon}></Image>
           </Col>
-          <Col className="col">
-              {itemGroup}
-          </Col>
-          <Col className="col-2 col-sm-1 text-bg-primary text-center rounded-3 py-3" onClick={() => changeSlides(1)}>
-            <BsArrowRight />
+          <Col>
+            {celFar === 'C' ? Math.round(Number(oneHourData.temp_c)) : Math.round(Number(oneHourData.temp_f))}˚{celFar}
           </Col>
         </Row>
-      </Container>
-    )
+      </ListGroup.Item>
+  );
+
+  // Changes which set of hourly data is displayed
+  function openCloseList() {
+    setlistOpen(!listOpen);
   }
 
   return (
-    createScrollerItem(scrollerItems[slideNum], 'hourlyscroller')
+    <Container> 
+      <ListGroup >
+        {listItems}
+      </ListGroup>
+    </Container>
   );
 }

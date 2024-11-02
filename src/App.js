@@ -2,6 +2,7 @@ import SearchBar from './components/SearchBar.js'
 import CurrentWeather from './components/CurrentWeather.js';
 import HourlyCard from './components/HourlyCard.js';
 import HourlyScroller from './components/HourlyScroller.js';
+import HourlyList from './components/HourlyList.js';
 import Container from 'react-bootstrap/Container';
 import { useState } from 'react';
 
@@ -78,19 +79,19 @@ export default function App() {
   // create an HourlyCard for each hour of hourly weather data
   let hourlyCards = hourlyData24.map(
     (hourData, i) =>
-    <HourlyCard 
-      hourData={hourData}
-      today={current_hour + i + 1 <= 23}
-      celFar={celFar}
-      key={"hourlyCard-" + hourData.time}
-    />);
+      <HourlyCard
+        hourData={hourData}
+        today={current_hour + i + 1 <= 23}
+        celFar={celFar}
+        key={"hourlyCard-" + hourData.time}
+      />);
 
   // Main return statement
   return (
     <div className="App">
       {searchBar}
-      <CurrentWeather weatherData={weatherData} celFar={celFar} miKm={miKm}/>
-      <HourlyScroller hourlyCards={hourlyCards} />
+      <CurrentWeather weatherData={weatherData} celFar={celFar} miKm={miKm} />
+      <HourlyList hourData={hourlyData24} celFar={celFar} />
     </div>
   );
 
