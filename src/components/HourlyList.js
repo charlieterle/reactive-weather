@@ -36,10 +36,14 @@ export default function HourlyList({ hourData, celFar }) {
   }
 
   return (
-    <Container> 
-      <ListGroup >
-        {listItems}
-      </ListGroup>
+    <Container>
+      <Row className="justify-content-center">
+        <Col className="col-md-8 col-lg-6">
+        <ListGroup> 
+          {listItems}
+        </ListGroup>
+        </Col>
+      </Row>
     </Container>
   );
 }
