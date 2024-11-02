@@ -19,7 +19,7 @@ export default function HourlyList({ hourData, celFar }) {
     (oneHourData) =>
       <ListGroup.Item className="bg-white bg-opacity-50" >
         <Row className="justify-content-center">
-          <Col>{oneHourData.time.slice(11, 14) >= currentHour ? 'Today' : 'Tomorrow'} {oneHourData.time.slice(11)}</Col>
+          <Col>{oneHourData.time.slice(11, 14) >= currentHour ? 'Today' : 'Tomorrow'}<br/>{oneHourData.time.slice(11)}</Col>
           <Col className="">
             <Image src={oneHourData.condition.icon}></Image>
           </Col>
@@ -36,7 +36,7 @@ export default function HourlyList({ hourData, celFar }) {
   }
 
   return (
-    <Container>
+    <Container className="text-center">
       <Row className="justify-content-center">
         <Col className="col-md-8 col-lg-6">
         <ListGroup> 
