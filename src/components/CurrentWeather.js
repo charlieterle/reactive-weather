@@ -17,7 +17,7 @@ export default function CurrentWeather({ weatherData, celFar, miKm }) {
   return (
     <Container className="mt-2 text-center">
       <Row className="justify-content-center">
-        <Col className="col-md-8 col-lg-6 border border-5 border-primary rounded bg-white bg-opacity-25">
+        <Col className="col-sm-10 col-md-8 col-lg-6 border border-3 border-primary rounded bg-white bg-opacity-25">
           <Row className="justify-content-center h3">
               {locationData.name}, {locationData.region}
           </Row>
