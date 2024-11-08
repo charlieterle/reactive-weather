@@ -1,9 +1,8 @@
 # Bugs
 
 ## P0
-* HourlyScroller looks terrible in small screen sizes
 * Add C/F support, and windspeed (mph, kph, m/s)
-* Background image does not repeat vertically, causing issues when scrolling downwards on small screens
+* Make HourlyList pretty (add a header and borders for the content)
 
 ## P1
 * Location submit behavior has no error messaging or options
