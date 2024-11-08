@@ -18,7 +18,7 @@ export default function HourlyList({ hourData, celFar }) {
   // Create a list of rows that display the hourly data for the next 24 hours
   const listItems = hourData.map(
     (oneHourData) =>
-      <ListGroup.Item className="bg-white bg-opacity-50" >
+      <ListGroup.Item className="bg-white bg-opacity-75 border border-1 border-dark-subtle" >
         <Row className="justify-content-center">
           <Col>{oneHourData.time.slice(11, 14) >= currentHour ? 'Today' : 'Tomorrow'}<br />{oneHourData.time.slice(11)}</Col>
           <Col className="">
@@ -40,10 +40,10 @@ export default function HourlyList({ hourData, celFar }) {
   let listItemsDisplay = listOpen ? listItems : listItems.slice(0, 6);
 
   return (
-    <Container className="text-center">
-      <Row className="justify-content-center">
-        <Col className="col-md-8 col-lg-6">
-          <ListGroup>
+    <Container className="mt-2 text-center gx-0">
+      <Row className="justify-content-center gx-0">
+        <Col className="col-sm-10 col-md-8 col-lg-6">
+          <ListGroup className="border border-3 border-primary rounded">
             {listItemsDisplay}
           </ListGroup>
           <Button onClick={openCloseList}>
