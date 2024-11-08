@@ -6,11 +6,12 @@ import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import ListGroup from 'react-bootstrap/ListGroup';
-// import { TODO FIND NEW ICON } from 'react-icons/bs';
+import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 
 export default function HourlyList({ hourData, celFar }) {
-  const [listOpen, setlistOpen] = useState(false);
+  const [listOpen, setListOpen] = useState(false);
+  const [openCloseText, setOpenCloseText] = useState('Expand Hourly Forecast')
 
   let currentHour = hourData[0].time.slice(11, 14);
 
@@ -19,7 +20,7 @@ export default function HourlyList({ hourData, celFar }) {
     (oneHourData) =>
       <ListGroup.Item className="bg-white bg-opacity-50" >
         <Row className="justify-content-center">
-          <Col>{oneHourData.time.slice(11, 14) >= currentHour ? 'Today' : 'Tomorrow'}<br/>{oneHourData.time.slice(11)}</Col>
+          <Col>{oneHourData.time.slice(11, 14) >= currentHour ? 'Today' : 'Tomorrow'}<br />{oneHourData.time.slice(11)}</Col>
           <Col className="">
             <Image src={oneHourData.condition.icon}></Image>
           </Col>
@@ -32,16 +33,22 @@ export default function HourlyList({ hourData, celFar }) {
 
   // Changes which set of hourly data is displayed
   function openCloseList() {
-    setlistOpen(!listOpen);
+    setListOpen(!listOpen);
+    setOpenCloseText(listOpen ? 'Expand Hourly Forecast' : 'Collapse Hourly Forecast');
   }
+
+  let listItemsDisplay = listOpen ? listItems : listItems.slice(0, 6);
 
   return (
     <Container className="text-center">
       <Row className="justify-content-center">
         <Col className="col-md-8 col-lg-6">
-        <ListGroup> 
-          {listItems}
-        </ListGroup>
+          <ListGroup>
+            {listItemsDisplay}
+          </ListGroup>
+          <Button onClick={openCloseList}>
+            {openCloseText}
+          </Button>
         </Col>
       </Row>
     </Container>
