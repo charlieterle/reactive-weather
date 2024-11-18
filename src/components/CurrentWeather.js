@@ -19,7 +19,7 @@ export default function CurrentWeather({ weatherData, celFar, miKm }) {
       <Row className="justify-content-center">
         <Col className="col-sm-10 col-md-8 col-lg-6 border border-3 border-primary rounded bg-white bg-opacity-25">
           <Row className="justify-content-center h3">
-              {locationData.name}, {locationData.region}
+            {locationData.name}, {locationData.region}
           </Row>
           <Row className="row-cols-3 justify-content-center" >
             <Col>
@@ -36,7 +36,6 @@ export default function CurrentWeather({ weatherData, celFar, miKm }) {
               <Row className="justify-content-center">Wind: {windSpeed} {windUnit} {currentData.wind_dir}</Row>
             </Col>
           </Row>
-
         </Col>
       </Row>
     </Container >

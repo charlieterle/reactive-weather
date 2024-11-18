@@ -37,6 +37,7 @@ export default function HourlyList({ hourData, celFar }) {
     setOpenCloseText(listOpen ? 'Expand Hourly Forecast' : 'Collapse Hourly Forecast');
   }
 
+  // Decides how much hourly forecast data to display
   let listItemsDisplay = listOpen ? listItems : listItems.slice(0, 6);
 
   return (
