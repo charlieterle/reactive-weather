@@ -1,9 +1,7 @@
 import SearchBar from './components/SearchBar.js'
 import CurrentWeather from './components/CurrentWeather.js';
-import HourlyCard from './components/HourlyCard.js';
-import HourlyScroller from './components/HourlyScroller.js';
 import HourlyList from './components/HourlyList.js';
-import Container from 'react-bootstrap/Container';
+import ButtonMenu from './components/ButtonMenu.js';
 import { useState } from 'react';
 
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
@@ -41,6 +39,16 @@ export default function App() {
     getWeatherData(newLocation);
   }
 
+  function handleCelFarClick() {
+    if (celFar == 'F') setCelFar('C');
+    else setCelFar('F');
+  }
+
+  function handleMiKmClick() {
+    if (miKm == 'mi') setMiKm('km');
+    else setMiKm('mi');
+  }
+
   // Create the SearchBar element
   const searchBar = (
     <SearchBar
@@ -76,20 +84,11 @@ export default function App() {
     hourlyData24.push(hourData);
   }
 
-  // create an HourlyCard for each hour of hourly weather data
-  let hourlyCards = hourlyData24.map(
-    (hourData, i) =>
-      <HourlyCard
-        hourData={hourData}
-        today={current_hour + i + 1 <= 23}
-        celFar={celFar}
-        key={"hourlyCard-" + hourData.time}
-      />);
-
   // Main return statement
   return (
     <div className="App">
       {searchBar}
+      <ButtonMenu onCelFarClick={handleCelFarClick} onMiKmClick={handleMiKmClick} /> 
       <CurrentWeather weatherData={weatherData} celFar={celFar} miKm={miKm} />
       <HourlyList hourData={hourlyData24} celFar={celFar} />
     </div>

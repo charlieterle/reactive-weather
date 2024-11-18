@@ -2,7 +2,8 @@
 
 ## P0
 * Add C/F support, and windspeed (mph, kph, m/s)
-* Make HourlyList pretty (add a header and borders for the content)
+* Add headers for the page (hourlylist and overall page)
+* Add links to my github (and other resources?) from the page
 
 ## P1
 * Location submit behavior has no error messaging or options
