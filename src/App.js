@@ -2,9 +2,7 @@ import SearchBar from './components/SearchBar.js'
 import CurrentWeather from './components/CurrentWeather.js';
 import HourlyList from './components/HourlyList.js';
 import ButtonMenu from './components/ButtonMenu.js';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Header from './components/Header.js';
 import { useState } from 'react';
 
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
@@ -71,15 +69,8 @@ export default function App() {
     return (
       <div className="App">
         <div className="col-9 col-sm-7 col-md-5 col-lg-4 col-xl-3 position-absolute top-50 start-50 translate-middle">
-        <Container className="mt-2 mb-3 text-center border border-3 border-primary rounded bg-white bg-opacity-50">
-          <Row className="h1 justify-content-center">
-            Reactive Weather
-          </Row>
-          <Row className="h3 justify-content-center">
-            by Charles Dieterle
-          </Row>
-        </Container>
-        {searchBar}
+          <Header />
+          {searchBar}
         </div>
       </div>
     );
@@ -101,7 +92,7 @@ export default function App() {
   return (
     <div className="App">
       {searchBar}
-      <ButtonMenu onCelFarClick={handleCelFarClick} onMiKmClick={handleMiKmClick} /> 
+      <ButtonMenu onCelFarClick={handleCelFarClick} onMiKmClick={handleMiKmClick} />
       <CurrentWeather weatherData={weatherData} celFar={celFar} miKm={miKm} />
       <HourlyList hourData={hourlyData24} celFar={celFar} />
     </div>
