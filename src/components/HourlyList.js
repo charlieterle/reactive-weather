@@ -18,7 +18,7 @@ export default function HourlyList({ hourData, celFar }) {
   // Create a list of rows that display the hourly data for the next 24 hours
   const listItems = hourData.map(
     (oneHourData) =>
-      <ListGroup.Item className="bg-white bg-opacity-75 border border-1 border-dark-subtle" >
+      <ListGroup.Item key={`hourlydata-${oneHourData.time}`} className="bg-white bg-opacity-75 border border-1 border-dark-subtle" >
         <Row className="justify-content-center">
           <Col>{oneHourData.time.slice(11, 14) >= currentHour ? 'Today' : 'Tomorrow'}<br />{oneHourData.time.slice(11)}</Col>
           <Col className="">
