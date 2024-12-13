@@ -4,6 +4,7 @@ import HourlyList from './components/HourlyList.js';
 import ButtonMenu from './components/ButtonMenu.js';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
+import Container from 'react-bootstrap/Container'
 import { useState } from 'react';
 
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
@@ -51,14 +52,6 @@ export default function App() {
     else setMiKm('mi');
   }
 
-  // Create the SearchBar element
-  const searchBar = (
-    <SearchBar
-      onLocationSubmit={handleLocationSubmit}
-      onInputChange={handleInputChange}
-    />
-  )
-
   // Checks if an object is empty (used to check if weatherData is populated or not)
   function isEmpty(obj) {
     for (const prop in obj) return false;
@@ -69,11 +62,13 @@ export default function App() {
   if (isEmpty(weatherData)) {
     return (
       <div className="App">
-        <div className="col-9 col-sm-7 col-md-5 col-lg-4 col-xl-3 position-absolute top-50 start-50 translate-middle">
+        <div className="col-9 col-sm-7 col-md-6 col-lg-5 col-xl-4 position-absolute top-50 start-50 translate-middle">
           <Header />
-          {searchBar}
+          <SearchBar onLocationSubmit={handleLocationSubmit} onInputChange={handleInputChange}/>
         </div>
-        <Footer />
+        <div className="col-9 col-sm-7 col-md-6 col-lg-5 col-xl-4 position-absolute bottom-0 start-50 translate-middle-x mb-4 p-0">
+          <Footer />
+        </div>
       </div>
     );
   }
@@ -93,11 +88,13 @@ export default function App() {
   // Main return statement
   return (
     <div className="App">
-      {searchBar}
+      <SearchBar onLocationSubmit={handleLocationSubmit} onInputChange={handleInputChange}/>
       <ButtonMenu onCelFarClick={handleCelFarClick} onMiKmClick={handleMiKmClick} />
       <CurrentWeather weatherData={weatherData} celFar={celFar} miKm={miKm} />
       <HourlyList hourData={hourlyData24} celFar={celFar} />
-      <Footer />
+      <Container className="col-sm-10 col-md-8 col-lg-6 text-center mt-4 mb-4 p-0">
+        <Footer />
+      </Container>
     </div>
   );
 
