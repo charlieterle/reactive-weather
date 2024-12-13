@@ -3,6 +3,7 @@ import CurrentWeather from './components/CurrentWeather.js';
 import HourlyList from './components/HourlyList.js';
 import ButtonMenu from './components/ButtonMenu.js';
 import Header from './components/Header.js';
+import Footer from './components/Footer.js';
 import { useState } from 'react';
 
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
@@ -72,6 +73,7 @@ export default function App() {
           <Header />
           {searchBar}
         </div>
+        <Footer />
       </div>
     );
   }
@@ -95,6 +97,7 @@ export default function App() {
       <ButtonMenu onCelFarClick={handleCelFarClick} onMiKmClick={handleMiKmClick} />
       <CurrentWeather weatherData={weatherData} celFar={celFar} miKm={miKm} />
       <HourlyList hourData={hourlyData24} celFar={celFar} />
+      <Footer />
     </div>
   );
 
