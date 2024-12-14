@@ -7,7 +7,6 @@ import Image from 'react-bootstrap/Image';
 
 export default function CurrentWeather({ weatherData, celFar, miKm }) {
   const locationData = weatherData.location;
-  const location = [locationData.name, locationData.region].join(", ");
   const currentData = weatherData.current;
   const currentTemp = celFar === "C" ? Math.round(Number(currentData.temp_c)) : Math.round(Number(currentData.temp_f));
   const currentFeelsLike = celFar === "C" ? Math.round(Number(currentData.feelslike_c)) : Math.round(Number(currentData.feelslike_f));

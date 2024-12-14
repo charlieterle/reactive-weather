@@ -43,12 +43,12 @@ export default function App() {
   }
 
   function handleCelFarClick() {
-    if (celFar == 'F') setCelFar('C');
+    if (celFar === 'F') setCelFar('C');
     else setCelFar('F');
   }
 
   function handleMiKmClick() {
-    if (miKm == 'mi') setMiKm('km');
+    if (miKm === 'mi') setMiKm('km');
     else setMiKm('mi');
   }
 
