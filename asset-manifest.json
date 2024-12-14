@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.94847637.css",
-    "main.js": "/static/js/main.d2da911a.js",
-    "static/js/453.dbcd4439.chunk.js": "/static/js/453.dbcd4439.chunk.js",
-    "static/media/background.jpeg": "/static/media/background.3c029e5bc1e6253322d0.jpeg",
-    "index.html": "/index.html",
-    "main.94847637.css.map": "/static/css/main.94847637.css.map",
-    "main.d2da911a.js.map": "/static/js/main.d2da911a.js.map",
-    "453.dbcd4439.chunk.js.map": "/static/js/453.dbcd4439.chunk.js.map"
+    "main.css": "/reactive-weather/static/css/main.36f4a660.css",
+    "main.js": "/reactive-weather/static/js/main.c9add027.js",
+    "static/js/453.dbcd4439.chunk.js": "/reactive-weather/static/js/453.dbcd4439.chunk.js",
+    "static/media/background.jpeg": "/reactive-weather/static/media/background.3c029e5bc1e6253322d0.jpeg",
+    "index.html": "/reactive-weather/index.html",
+    "main.36f4a660.css.map": "/reactive-weather/static/css/main.36f4a660.css.map",
+    "main.c9add027.js.map": "/reactive-weather/static/js/main.c9add027.js.map",
+    "453.dbcd4439.chunk.js.map": "/reactive-weather/static/js/453.dbcd4439.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.94847637.css",
-    "static/js/main.d2da911a.js"
+    "static/css/main.36f4a660.css",
+    "static/js/main.c9add027.js"
   ]
 }
